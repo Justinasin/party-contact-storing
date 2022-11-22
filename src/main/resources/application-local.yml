@@ -1,0 +1,25 @@
+server:
+  port: '8080'
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:birkledb
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+
+  security:
+    user:
+      name: admin
+      password: admin
