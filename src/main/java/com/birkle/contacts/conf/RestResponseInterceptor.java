@@ -17,6 +17,10 @@ public class RestResponseInterceptor implements ResponseBodyAdvice<Object> {
   @Autowired
   private RestLoggingService restLoggingService;
 
+
+  /**
+   * Method returns true, that means beforeBodyWrite method will be invoked
+   */
   @Override
   public boolean supports(MethodParameter returnType,
       Class<? extends HttpMessageConverter<?>> converterType) {
@@ -24,6 +28,10 @@ public class RestResponseInterceptor implements ResponseBodyAdvice<Object> {
     return true;
   }
 
+  /**
+   * Before returning response body to the client, application intercepts request and response
+   * to log information
+   */
   @Override
   public Object beforeBodyWrite(Object body,
       MethodParameter returnType,

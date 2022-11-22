@@ -1,5 +1,6 @@
 package com.birkle.contacts.util;
 
+import static java.lang.String.format;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 import com.birkle.contacts.entity.Party;
@@ -10,15 +11,16 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CSVUtil {
 
-  private static final Logger log = LogManager.getLogger(CSVUtil.class);
-
+  /**
+   * @param fileName is the name of file located in resource catalog
+   *
+   * @return list of Party objects, generated from csv file
+   */
   public List<Party> readPartiesFromCSV(String fileName) {
     List<Party> partyList = new ArrayList<>();
 
@@ -26,7 +28,7 @@ public class CSVUtil {
     InputStream inputStream = classLoader.getResourceAsStream(fileName);
 
     if (inputStream == null) {
-      throw new IllegalArgumentException("File not found! " + fileName);
+      throw new IllegalArgumentException(format("File: fileName not found!", fileName));
     }
 
     try (InputStreamReader streamReader =
@@ -42,15 +44,13 @@ public class CSVUtil {
         // using split method to load a string array with comma as a delimiter
         String[] attributes = line.split(",");
 
+        // create party object from String array
         Party party = createParty(attributes);
-
         partyList.add(party);
 
         // read next line before looping
         line = br.readLine();
       }
-
-
     } catch (IOException e) {
       e.printStackTrace();
     }

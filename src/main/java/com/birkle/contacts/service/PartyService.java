@@ -15,12 +15,10 @@ public class PartyService {
   private PartyRepository partyRepository;
 
   public Page<Party> getAllParties(Pageable pageable) {
-
     return partyRepository.findAll(pageable);
   }
 
   public Optional<Party> getPartyByFirstName(String firstName) {
-
     return partyRepository.findByFirstName(firstName);
   }
 }

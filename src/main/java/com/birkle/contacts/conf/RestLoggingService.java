@@ -31,6 +31,9 @@ public class RestLoggingService {
     log.info("===========================request end===========================");
   }
 
+  /**
+   * Method is used to format and log http responses made from the application to the client
+   */
   private void traceResponse(HttpServletResponse response, Object body) {
     log.info("===========================response begin===========================");
     log.info("Status code  : {}", response.getStatus());
@@ -39,9 +42,6 @@ public class RestLoggingService {
     log.info("===========================response end===========================");
   }
 
-  /**
-   * Method is used to format and log http responses made from the application to the client
-   */
   private Map<String, String> getRequestHeaders(HttpServletRequest request) {
     Map<String, String> headers = new HashMap<>();
     Enumeration<String> headerNames = request.getHeaderNames();

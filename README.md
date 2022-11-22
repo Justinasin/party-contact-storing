@@ -13,17 +13,16 @@ https://github.com/Justinasin/party-contact-storing
 
 Before starting to build application, need to set up:
 
-- development/config.env if you are going to run application in Docker container or locally **
-  without any spring profile**
+- development/config.env if you are going to run application in Docker container or locally **without any spring profile**
 - application-local.yml file if you are going to run application locally with spring profile "local"
 
 **Using Docker**
 
 - Navigate to root catalog of the project
-- Build docker image: docker build -t image_name:tag . , e.g. *docker build -t contact-list:latest
+- Build docker image: docker build -t image_name:tag . , e.g. *docker build -t party-contact-store:latest
   .*
 - Run docker container with built image: docker run [docker_image] , e.g. *docker run -d --env-file
-  development/config.env -p 8080:8080 contact-list:latest*  
+  development/config.env -p 8080:8080 party-contact-store:latest*  
   `--env-file` stands for application configuration file  
   `-d` runs container in background and prints container ID  
   `-p` publishes a container's port(s) to the host
@@ -45,10 +44,10 @@ For deployment you will need:
 When we have these files, we are ready to run the application
 
 - Navigate to the catalog of the project where your files are located
-- Build docker image: docker build -t image_name:tag . , e.g. *docker build -t contact-list:latest
+- Build docker image: docker build -t image_name:tag . , e.g. *docker build -t party-contact-store:latest
   .*
 - Run docker container with built image: docker run [docker_image] , e.g. *docker run -d --env-file
-  config.env -p 8080:8080 contact-list:latest*
+  config.env -p 8080:8080 party-contact-store:latest*
 
 Make sure that path of `--env-file` is correct. If your `config.env` file is in the same catalog
 as `Docker`
@@ -73,11 +72,11 @@ See logs directly in container
 Logs in Docker container are located in `/usr/app/logs`, need to mount a volume in your local environment
 to mirror logs from Docker container to your machine or server  
 When running Docker container specify volume, e.g.: 
-`docker run --env-file config.env -v /home/user/application/logs:/usr/app/logs -p 8080:8080 contact-list:latest`
+`docker run --env-file config.env -v /home/user/application/logs:/usr/app/logs -p 8080:8080 party-contact-store:latest`
 
 ## Testing
 
-Application is covered 
+Application is covered unit tests 
 
 ## Features
 
