@@ -118,3 +118,12 @@ curl --location --request GET 'localhost:8080/parties/Harriette' \
 
 Rest services are secured using Basic Auth  
 Default credentials in `conf.env` file are `admin, admin`
+
+# Front end   
+
+## Building & running
+
+- Navigate to *root_catalog_of_project/frontend/party-list*
+- Run `ng build` in terminal
+- Run `ng serve` in terminal
+- Head to http://localhost:4200
