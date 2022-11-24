@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -20,7 +21,8 @@ import { PartyService } from './party.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [PartyService],
   bootstrap: [AppComponent]

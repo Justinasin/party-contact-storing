@@ -1,4 +1,5 @@
 <h2> Party list</h2>
+
 <table class = "table table-striped">
   <thead>
   <tr>
@@ -10,6 +11,40 @@
   </thead>
   <tbody>
   <tr *ngFor = "let party of parties" >
+    <td> {{ party.firstName }} </td>
+    <td> {{ party.lastName }} </td>
+    <td> {{ party.email }} </td>
+    <td> {{ party.phoneNumber }} </td>
+  </tr>
+  </tbody>
+</table>
+
+<h2> Find party by first name</h2>
+
+<div class="row">
+  <div class="col-md-offset-0 col-md-4">
+    <form [formGroup]="form" (ngSubmit)="searchForm()">
+      <table>
+        <tr>
+          <td> <input type="text" formControlName="firstName" placeholder="Enter first name" class="form-control"> </td>
+          <td><button class="btn btn-primary hidden-xs">Search</button></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+
+<table class = "table table-striped">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name </th>
+    <th>Email</th>
+    <th>Phone number</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
     <td> {{ party.firstName }} </td>
     <td> {{ party.lastName }} </td>
     <td> {{ party.email }} </td>

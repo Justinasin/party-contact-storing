@@ -14,11 +14,6 @@ export class PartyService {
 
 
   private headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
       'Authorization': 'Basic ' + btoa('admin:admin')
     })
 
@@ -26,7 +21,11 @@ export class PartyService {
 
   constructor(private http : HttpClient) { }
 
-  getPartyList(): Observable<Party[]>{
-    return this.http.get<Party[]>(`${this.baseUrl}`, { headers: this.headers}).pipe(map(response => response['data']));;
+  getPartyList() : Observable<Party[]>{
+    return this.http.get<Party[]>(`${this.baseUrl}`, { headers: this.headers}).pipe(map(response => response['data']));
+  }
+
+  getPartyByFirstName(firstName : string) : Observable<Party> {
+    return this.http.get<Party>(`${this.baseUrl}/${firstName}`, { headers: this.headers}).pipe(map(response => response['data']));
   }
 }
