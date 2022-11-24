@@ -12,7 +12,7 @@ public class BasicAuthConfig {
 
   @Bean
   public SecurityFilterChain configure(HttpSecurity http) throws Exception {
-    return http.authorizeRequests()
+    return http.cors().and().authorizeRequests()
         .anyRequest()
         .authenticated()
         .and()

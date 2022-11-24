@@ -1,0 +1,19 @@
+<h2> Party list</h2>
+<table class = "table table-striped">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name </th>
+    <th>Email</th>
+    <th>Phone number</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let party of parties" >
+    <td> {{ party.firstName }} </td>
+    <td> {{ party.lastName }} </td>
+    <td> {{ party.email }} </td>
+    <td> {{ party.phoneNumber }} </td>
+  </tr>
+  </tbody>
+</table>
